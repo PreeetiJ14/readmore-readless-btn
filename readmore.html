@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+   
+ .read-more-contanier{
+    display: flex;
+    flex-direction: column;
+    color:#111;
+    gap:1rem;
+ }
+ .container{
+    padding:2rem;
+    background-color: #fff;
+    border-radius: 2px;
+    line-height: 1.4rem;
+    box-shadow: 0 0 1rem rgba(0,0,0,.1);
+ }
+ .read-more-btn{
+    color:#0984e3;
+ }
+ .read-more-text{
+    display: none;
+ }
+ .read-more-text--show{
+    display: inline;
+ }
+</style>
+<body>
+    <div class="read-more-contanier">
+        <div class="container">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing 
+                elit. Voluptatem id temporibus nihil corporis natus veritatis
+                 atque inventore officiis minima labore? Iste nobis nesciunt
+                  quaerat perferendis quam, rerum placeat error dolores!
+                  <span class="read-more-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing 
+                    elit. Voluptatem id temporibus nihil corporis natus veritatis
+                     atque inventore officiis minima labore? Iste nobis nesciunt
+                      quaerat perferendis quam, rerum placeat error dolores!
+                  </span>
+            </p>
+            <span class="read-more-btn">Read More..</span>
+        </div>
+
+        <div class="container">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing 
+                elit. Voluptatem id temporibus nihil corporis natus veritatis
+                 atque inventore officiis minima labore? Iste nobis nesciunt
+                  quaerat perferendis quam, rerum placeat error dolores!
+                  <span class="read-more-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing 
+                    elit. Voluptatem id temporibus nihil corporis natus veritatis
+                     atque inventore officiis minima labore? Iste nobis nesciunt
+                      quaerat perferendis quam, rerum placeat error dolores!
+                  </span>
+            </p>
+            <span class="read-more-btn">Read More..</span>
+        </div>
+    </div>
+</body>
+<script>
+    const parentcontainer = document.querySelector('.read-more-contanier');
+
+parentcontainer.addEventListener('click', event=> {
+
+    const current = event.target;
+
+    const isReadMoreBtn = current.className.includes('read-more-btn');
+
+    if(!isReadMoreBtn) return;
+
+    const currentText = event.target.parentNode.querySelector('.read-more-text');
+
+    currentText.classList.toggle('read-more-text--show');
+
+    current.textContent = current.textContent.includes('Read More') ?
+    "Read Less..." : "Read More...";
+})
+</script>
+</html>
